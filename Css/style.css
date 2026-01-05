@@ -1,0 +1,311 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* =========================
+   BODY & BACKGROUND
+========================= */
+body, .auth-body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a0f1f, #05070f);
+  color: #fff;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 30px;
+}
+
+/* Background glow blobs */
+.bg-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  filter: blur(120px);
+  opacity: 0.35;
+  border-radius: 50%;
+  animation: float 12s ease-in-out infinite;
+  z-index: 0;
+}
+.glow-1 { background: #00f6ff; top: -120px; left: -120px; }
+.glow-2 { background: #7a5cff; bottom: -120px; right: -120px; animation-delay: 6s; }
+
+@keyframes float {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(25px);}
+}
+
+/* =========================
+   LOGIN CARD
+========================= */
+.login-card {
+  position: relative;
+  width: 380px;
+  padding: 40px 35px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 0 40px rgba(0,246,255,0.12),0 0 80px rgba(122,92,255,0.08);
+  animation: fadeUp 1s ease forwards;
+  z-index: 2;
+}
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+.login-card h1 {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg,#00f6ff,#7a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.login-card .subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #b8c1ec;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   INPUT GROUP / FLOATING LABEL
+========================= */
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+.input-group input {
+  width: 100%;
+  padding: 14px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.input-group input:focus {
+  border-color: #00f6ff;
+  box-shadow: 0 0 12px rgba(0,246,255,0.4);
+}
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: #05070f;
+  padding: 0 6px;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 11px;
+  color: #00f6ff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  background: linear-gradient(90deg,#00f6ff,#7a5cff);
+  box-shadow: 0 0 25px rgba(0,246,255,0.7),0 0 50px rgba(122,92,255,0.5);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(0,246,255,0.9),0 0 80px rgba(122,92,255,0.6);
+}
+button:active { transform: scale(0.97); }
+button.danger {
+  background: linear-gradient(90deg,#ff4e50,#f9d423);
+  box-shadow: 0 0 25px rgba(255,78,80,0.7),0 0 50px rgba(249,212,35,0.5);
+}
+button.danger:hover {
+  box-shadow: 0 0 40px rgba(255,78,80,0.9),0 0 80px rgba(249,212,35,0.6);
+}
+
+/* =========================
+   FOOTNOTE / SMALL TEXT
+========================= */
+.note {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #8a8fa3;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 10;
+}
+.sidebar h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg,#00f6ff,#7a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sidebar a {
+  text-decoration: none;
+  color: #b8c1ec;
+  margin-bottom: 18px;
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.sidebar a.active,
+.sidebar a:hover {
+  background: linear-gradient(90deg,#00f6ff,#7a5cff);
+  color: #000;
+  box-shadow: 0 0 12px rgba(0,246,255,0.5),0 0 24px rgba(122,92,255,0.4);
+}
+.logout-btn {
+  margin-top: auto;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#ff4e50,#f9d423);
+  color:#000;
+  transition: all 0.3s ease;
+}
+.logout-btn:hover {
+  box-shadow: 0 0 20px rgba(255,78,80,0.7),0 0 40px rgba(249,212,35,0.5);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.content {
+  margin-left: 240px;
+  padding: 40px 30px;
+  flex: 1;
+  z-index: 1;
+}
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg,#00f6ff,#7a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.page-header p {
+  font-size: 14px;
+  color: #b8c1ec;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   CARDS / WALLET / INFO
+========================= */
+.card, .wallet-card, .info-card {
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 0 40px rgba(0,246,255,0.12),0 0 80px rgba(122,92,255,0.08);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card:hover, .wallet-card:hover, .info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px rgba(0,246,255,0.3),0 0 100px rgba(122,92,255,0.2);
+}
+/* Glow pulse animation inside cards */
+.card::after, .wallet-card::after, .info-card::after {
+  content:'';
+  position:absolute;
+  width:120%;
+  height:120%;
+  top:-10%; left:-10%;
+  background: linear-gradient(45deg, #00f6ff,#7a5cff,#ff4e50,#f9d423);
+  filter: blur(80px);
+  opacity:0.3;
+  animation: pulse 6s linear infinite;
+  z-index:-1;
+}
+@keyframes pulse{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(360deg);}
+}
+
+/* Cards flex layout */
+.cards{display:flex;gap:20px;flex-wrap:wrap;}
+.card h3,.wallet-card h2{font-size:18px;font-weight:600;margin-bottom:10px;}
+.card p.big,.wallet-card h2{font-size:24px;font-weight:700;color:#fff;}
+.balance-row{margin-bottom:15px;}
+.info-card p{font-size:14px;line-height:1.6;color:#b8c1ec;}
+.info-card ul{list-style:disc;margin-left:20px;color:#b8c1ec;}
+
+/* =========================
+   HIDDEN CLASS
+========================= */
+.hidden{display:none;}
+
+/* =========================
+   SUCCESS ANIMATION
+========================= */
+#successBox{
+  animation: fadeInUp 0.7s ease forwards;
+  opacity:0;
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:900px){
+  .content{margin-left:0;padding:20px;}
+  .cards{flex-direction:column;}
+  .sidebar{width:100%;height:auto;position:relative;flex-direction:row;justify-content:space-around;padding:15px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,0.12);}
+}

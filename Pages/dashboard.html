@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>USDT Dashboard</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="sidebar">
+<h2>USDT</h2>
+<a href="dashboard.html" class="active">Dashboard</a>
+<a href="account.html">My Account</a>
+<a href="liquidate.html">Liquidate</a>
+<a href="about.html">About</a>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</nav>
+
+<main class="content">
+<div class="page-header">
+  <h1>Dashboard Overview</h1>
+  <p>All balances are synchronized across pages.</p>
+</div>
+
+<div class="cards">
+  <div class="card">
+    <h3>Total Balance</h3>
+    <p class="big" id="totalBalance">0 USDT</p>
+  </div>
+  <div class="card">
+    <h3>Account Age</h3>
+    <p class="big">3 Years</p>
+  </div>
+  <div class="card">
+    <h3>Network</h3>
+    <p class="big">TRC20</p>
+  </div>
+</div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

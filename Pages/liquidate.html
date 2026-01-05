@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Liquidate USDT</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="sidebar">
+<h2>USDT</h2>
+<a href="dashboard.html">Dashboard</a>
+<a href="account.html">My Account</a>
+<a href="liquidate.html" class="active">Liquidate</a>
+<a href="about.html">About</a>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</nav>
+
+<main class="content">
+<div class="page-header">
+<h1>Liquidate Funds</h1>
+<p>Funds are processed in 3 business days.</p>
+</div>
+
+<div id="lockBox" class="wallet-card">
+<p>Enter Privacy Code</p>
+<input type="password" id="code" placeholder="Privacy Code" />
+<button onclick="unlock()">Verify</button>
+</div>
+
+<div id="liquidateBox" class="wallet-card hidden">
+<p>Enter Wallet Address</p>
+<input type="text" id="walletAddress" placeholder="Wallet Address" />
+
+<p>Enter Amount (USDT)</p>
+<input type="number" id="withdrawAmount" placeholder="Amount to withdraw" min="1" />
+
+<button onclick="sendFunds()" class="danger">Send USDT</button>
+</div>
+
+<div id="successBox" class="wallet-card hidden"></div>
+
+<p>Total Balance: <span id="balanceDisplay">0 USDT</span></p>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

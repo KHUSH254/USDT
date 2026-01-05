@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>My Account</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="sidebar">
+<h2>USDT</h2>
+<a href="dashboard.html">Dashboard</a>
+<a href="account.html" class="active">My Account</a>
+<a href="liquidate.html">Liquidate</a>
+<a href="about.html">About</a>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</nav>
+
+<main class="content">
+<div class="page-header">
+<h1>My Wallet</h1>
+<p>Balances automatically update across pages.</p>
+</div>
+
+<div class="wallet-card">
+<p>Balance (USD)</p>
+<h2 id="balanceUSD">0</h2>
+
+<p>Balance (KES)</p>
+<h2 id="balanceKES">0</h2>
+
+<p>Balance (USDT)</p>
+<h2 id="balanceUSDT">0 USDT</h2>
+</div>
+
+<small class="note">Rates shown are simulated</small>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
