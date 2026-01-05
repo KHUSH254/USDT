@@ -24,7 +24,7 @@ function animateBalance(id){
     } else if(id.includes('USD')){
       el.textContent = '$'+Math.round(current).toLocaleString();
     } else if(id.includes('KES')){
-      el.textContent = 'KES '+Math.round(current*155); // assuming 1 USDT = 155 KES
+      el.textContent = 'KES '+Math.round(current*155);
     } else {
       el.textContent = Math.round(current).toLocaleString();
     }
@@ -45,7 +45,8 @@ function login() {
   const u = document.getElementById('username').value;
   const p = document.getElementById('password').value;
   if(u==='KHUSH' && p==='1708'){
-    window.location.href='pages/dashboard.html';
+    // redirect works on GitHub Pages
+    window.location.href = './pages/dashboard.html';
   } else {
     alert('Invalid agency credentials');
   }
@@ -56,7 +57,7 @@ function login() {
 // LOGOUT FUNCTION
 // =======================
 function logout(){
-  window.location.href='../index.html';
+  window.location.href = '/USDT/index.html';
 }
 
 // =======================
